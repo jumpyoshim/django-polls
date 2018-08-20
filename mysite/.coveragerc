@@ -1,0 +1,18 @@
+[run]
+branch = True
+source = .
+
+[report]
+ignore_errors = True
+omit =
+  */migrations/*
+  */__init__.py
+  */tests.py
+  */apps.py
+  */manage.py
+  */wsgi.py
+  */urls.py
+  */settings.py
+
+[html]
+directory = coverage

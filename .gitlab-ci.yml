@@ -1,0 +1,36 @@
+variables:
+  CONTAINER_IMAGE_GCR: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+
+.test_template: &test_definition
+  stage: test
+  image: python:3.6-slim
+  before_script:
+    - pip install --upgrade pip && pip install pipenv
+    - pipenv install --system --dev
+    - cd mysite
+
+unit-test:
+  <<: *test_definition
+  services:
+    - postgres:latest
+  variables:
+    POSTGRES_DB: custom_db
+    POSTGRES_USER: custom_user
+    POSTGRES_PASSWORD: custom_password
+  script:
+    - export DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres:5432/$POSTGRES_DB
+    - coverage run manage.py test
+  artifacts:
+    paths:
+      - mysite/coverage
+
+flake8:
+  <<: *test_definition
+  script:
+    - flake8
+
+radon:
+  <<: *test_definition
+  script:
+    - radon cc -n C .
+    - radon mi -n B .
