@@ -20,6 +20,8 @@ unit-test:
   script:
     - export DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres:5432/$POSTGRES_DB
     - coverage run manage.py test
+    - coverage report
+    - coverage html
   artifacts:
     paths:
       - mysite/coverage
