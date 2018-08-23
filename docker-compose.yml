@@ -4,14 +4,14 @@ services:
   db:
     image: postgres:latest
     environment:
-      POSTGRES_DB: db
-      POSTGRES_USER: user
+      POSTGRES_DB: polls
       POSTGRES_PASSWORD: password
-  app:
+  web:
     build: .
-    command: bash -c "python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+    command: bash -c "../wait-for-it.sh db:5432 -- python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
+    working_dir: /code/mysite
     ports:
       - "8000:8000"
     env_file:

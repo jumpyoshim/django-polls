@@ -1,11 +1,21 @@
 variables:
   CONTAINER_IMAGE_GCR: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
 
+build:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  script:
+    - docker build --pull -t $CONTAINER_IMAGE_GCR .
+    - docker push $CONTAINER_IMAGE_GCR
+
 .test_template: &test_definition
   stage: test
-  image: python:3.6-slim
+  image: $CONTAINER_IMAGE_GCR
   before_script:
-    - pip install --upgrade pip && pip install pipenv
     - pipenv install --system --dev
     - cd mysite
 
