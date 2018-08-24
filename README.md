@@ -10,4 +10,4 @@ $ cp .env.example .env
 $ docker-compose up
 ```
 
-Your app should now be running on http://0.0.0.0:8000/
+Your app should now be running on http://0.0.0.0:8000/polls/
