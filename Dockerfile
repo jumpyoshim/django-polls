@@ -1,7 +1,15 @@
-FROM python:3.6-slim
+FROM python:3.7
 ENV PYTHONUNBUFFERED 1
+
+RUN apt-get update && apt-get install -y wget
+
+ENV DOCKERIZE_VERSION v0.6.1
+RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+    && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+
 RUN mkdir /code
 WORKDIR /code
 ADD . /code/
-RUN pip install --upgrade pip && pip install pipenv
-RUN pipenv install --system --deploy
+
+RUN pip install pipenv && pipenv install --system --deploy
