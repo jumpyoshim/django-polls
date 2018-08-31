@@ -19,7 +19,7 @@ build:
     - pipenv install --system --dev
     - cd mysite
 
-unit-test:
+pytest:
   <<: *test_definition
   services:
     - postgres:latest
@@ -29,12 +29,10 @@ unit-test:
     POSTGRES_PASSWORD: custom_password
   script:
     - export DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres:5432/$POSTGRES_DB
-    - coverage run manage.py test
-    - coverage report
-    - coverage html
+    - py.test --cov-report=html -v
   artifacts:
     paths:
-      - mysite/coverage
+      - mysite/htmlcov
 
 flake8:
   <<: *test_definition
