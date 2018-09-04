@@ -16,4 +16,4 @@ pytest-django = "==3.4.2"
 radon = "==2.2.0"
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"
