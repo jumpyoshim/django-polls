@@ -11,3 +11,10 @@ $ docker-compose up
 ```
 
 Your app should now be running on http://0.0.0.0:8000/polls/
+
+Deploying to Heroku
+---
+1. Create [New tag](https://gitlab.com/jumpyoshim/django-polls/tags/new)
+  - Tag naming rules conform to [Semantic Versioning](https://semver.org/)
+
+1. Execute [Run pipline](https://gitlab.com/jumpyoshim/django-polls/pipelines/new) with the tag you created
