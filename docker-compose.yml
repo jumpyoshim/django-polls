@@ -8,7 +8,12 @@ services:
       POSTGRES_PASSWORD: password
   web:
     build: .
-    command: bash -c "dockerize -wait tcp://db:5432 && pipenv install --system --dev && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
+    command: >
+      bash -c "dockerize -wait tcp://db:5432
+      && pipenv install --system --dev
+      && python3 manage.py migrate
+      && python3 manage.py collectstatic --noinput
+      && python3 manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/code
     working_dir: /code/mysite
