@@ -13,6 +13,3 @@ omit =
   */wsgi.py
   */urls.py
   */settings.py
-
-[html]
-directory = coverage
