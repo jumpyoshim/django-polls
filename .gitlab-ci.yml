@@ -9,16 +9,16 @@
 build_for_master:
   <<: *build_definition
   script:
-    - docker build --pull -t $CI_REGISTY_IMAGE:latest .
-    - docker push $CI_REGISTY_IMAGE:latest
+    - docker build --pull -t $CI_REGISTRY_IMAGE:latest .
+    - docker push $CI_REGISTRY_IMAGE:latest
   only:
     - master
 
 build_for_tags:
   <<: *build_definition
   script:
-    - docker build --pull -t $CI_REGISTY_IMAGE:$CI_COMMIT_TAG .
-    - docker push $CI_REGISTY_IMAGE:$CI_COMMIT_TAG
+    - docker build --pull -t $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
   only:
     - tags
 
