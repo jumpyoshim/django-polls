@@ -4,18 +4,18 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
-dj-database-url = "*"
-psycopg2 = "*"
-whitenoise = "*"
-gunicorn = "*"
+django = "==2.1"
+dj-database-url = "==0.5.0"
+psycopg2 = "==2.7.6.1"
+whitenoise = "==4.1"
+gunicorn = "==19.9.0"
 
 [dev-packages]
-pytest-cov = "*"
-pytest-django = "*"
-flake8 = "*"
-flake8-isort = "*"
-radon = "*"
+pytest-cov = "==2.6.0"
+pytest-django = "==3.4.2"
+flake8 = "==3.5.0"
+flake8-isort = "==2.5"
+radon = "==2.2.0"
 
 [requires]
 python_version = "3.7"
