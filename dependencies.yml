@@ -4,8 +4,3 @@ dependencies:
   path: Dockerfile
 - type: python
   path: Pipfile
-  settings:
-    pipfile_sections:
-    - packages
-    pipfilelock_sections:
-    - default
