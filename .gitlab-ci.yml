@@ -28,8 +28,6 @@ build_for_tags:
   before_script:
     - pip install pipenv
     - pipenv install --system --dev
-  except:
-    - master
 
 pytest:
   <<: *test_definition
