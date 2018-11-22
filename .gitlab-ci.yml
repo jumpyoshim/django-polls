@@ -39,12 +39,11 @@ pytest:
     POSTGRES_PASSWORD: custom_password
   script:
     - export DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres:5432/$POSTGRES_DB
-    - python3 manage.py migrate
     - python3 manage.py collectstatic --noinput
-    - py.test --cov-report=html --tb=line
+    - pytest --cov-report=html --tb=line
   artifacts:
     paths:
-      - mysite/htmlcov
+      - htmlcov
 
 flake8:
   <<: *test_definition
