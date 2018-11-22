@@ -41,9 +41,11 @@ pytest:
     - export DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@postgres:5432/$POSTGRES_DB
     - python3 manage.py collectstatic --noinput
     - pytest --cov-report=html --tb=line
+  after_script:
+    - mv htmlcov/ public/
   artifacts:
     paths:
-      - htmlcov
+      - public
 
 flake8:
   <<: *test_definition
