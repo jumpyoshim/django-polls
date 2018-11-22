@@ -65,3 +65,14 @@ deploy:
   only:
     - tags
   when: manual
+
+pages:
+  stage: deploy
+  image: alpine:latest
+  script:
+    - echo 'Nothing to do...'
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
