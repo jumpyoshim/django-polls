@@ -9,9 +9,10 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && \
     rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-RUN mkdir /code
-WORKDIR /code
-ADD . /code/
+RUN mkdir /app
+WORKDIR /app
+ADD . /app/
 
-RUN pip install pipenv && \
+RUN pip install --upgrade pip && \
+    pip install pipenv && \
     pipenv install --system --deploy
