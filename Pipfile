@@ -1,21 +1,21 @@
 [[source]]
+name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-name = "pypi"
-
-[packages]
-django = "==2.1"
-dj-database-url = "==0.5.0"
-psycopg2 = "==2.7.6.1"
-whitenoise = "==4.0"
-gunicorn = "==19.9.0"
 
 [dev-packages]
-pytest-cov = "==2.6.0"
-pytest-django = "==3.4.2"
 flake8 = "==3.5.0"
 flake8-isort = "==2.5"
+pytest-cov = "==2.6.0"
+pytest-django = "==3.4.2"
 radon = "==2.2.0"
+
+[packages]
+dj-database-url = "==0.5.0"
+django = "==2.1.4"
+gunicorn = "==19.9.0"
+psycopg2 = "==2.7.6.1"
+whitenoise = "==4.0"
 
 [requires]
 python_version = "3.7"
