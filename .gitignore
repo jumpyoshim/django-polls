@@ -49,3 +49,7 @@ staticfiles/
 
 # mypy
 .mypy_cache/
+
+# Editor
+.vscode/
+
