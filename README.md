@@ -1,5 +1,11 @@
-# Django2.1-Tutorial
-https://docs.djangoproject.com/ja/2.1/intro/tutorial01/
+# Django Polls Application
+This application extends [the Django tutorial](https://docs.djangoproject.com/ja/2.1/intro/tutorial01/).
+
+You can create, read, update and delete polls. You can also vote on polls.  
+Please try it actually:
+
+https://django-polls-jp.herokuapp.com/
+
 
 Runnning Locally
 ---
@@ -10,14 +16,16 @@ $ cp .env.example .env
 $ docker-compose up
 ```
 
-Your app should now be running on http://0.0.0.0:8000/polls/
+Your app should now be running on http://0.0.0.0:8000/
+
 
 Deploying to Heroku
 ---
 1. Create [New tag](https://gitlab.com/jumpyoshim/django-polls/tags/new)
    - Tag naming rules conform to [Semantic Versioning](https://semver.org/)
 
-1. Execute deploy job with the tag you created
+1. Run pipeline with the tag you created
+
 
 Coverage Report
 ---
