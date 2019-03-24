@@ -1,0 +1,53 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+<form method="post">
+    <h2>Question</h2>
+    <p class="question">{{ form.as_table }}</p>
+
+    <h2>Choices</h2>
+    {{ choices.management_form }}
+    <div class="choice">
+        <p>
+            <label for="id_choice_set-0-text">Text:</label>
+            <input type="text" name="choice_set-0-text" maxlength="200" id="id_choice_set-0-text" required>
+        </p>
+        <p>
+            <label for="id_choice_set-1-text">Text:</label>
+            <input type="text" name="choice_set-1-text" maxlength="200" id="id_choice_set-1-text" required>
+        </p>
+    </div>
+
+    {% csrf_token %}
+    <button type="button" class="btn btn-success" id="add">Add Choice</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
+
+{% block extrajs %}
+<script>
+$(function(){
+    $('button#add').on('click', function(){
+        var totalChoices = $('input#id_choice_set-TOTAL_FORMS');
+        var currentChoiceNum = parseInt(totalChoices.val());
+        var choiceId = 'id_choice_set-' + currentChoiceNum + '-text'
+
+        var labelElement = $('<label>Text:\u00a0</label>', {for: choiceId});
+        var textElement = $('<input>', {
+            type: 'text',
+            id: choiceId,
+            max_length: '200',
+            name: 'choice_set-' + currentChoiceNum + '-text'
+        });
+        var choiceElement = $('<p>', {id: choiceId})
+
+        choiceElement.append(labelElement);
+        choiceElement.append(textElement);
+        $('div.choice').append(choiceElement);
+
+        currentChoiceNum += 1;
+        totalChoices.attr('value', currentChoiceNum);
+    });
+});
+</script>
+{% endblock %}

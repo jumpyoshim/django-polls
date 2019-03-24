@@ -4,18 +4,20 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-flake8 = "==3.5.0"
-flake8-isort = "==2.5"
-pytest-cov = "==2.6.0"
-pytest-django = "==3.4.2"
-radon = "==2.2.0"
+flake8 = "~=3.5"
+flake8-isort = "~=2.5"
+pytest-cov = "~=2.6"
+pytest-django = "~=3.4"
+radon = "~=2.2"
 
 [packages]
-dj-database-url = "==0.5.0"
-django = "==2.1.4"
-gunicorn = "==19.9.0"
-psycopg2 = "==2.7.6.1"
-whitenoise = "==4.0"
+dj-database-url = "~=0.5"
+django = "~=2.1"
+gunicorn = "~=19.9"
+psycopg2 = "~=2.7"
+whitenoise = "~=4.0"
+django-model-utils = "~=3.1"
+djangorestframework = "~=3.9"
 
 [requires]
 python_version = "3.7"
