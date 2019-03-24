@@ -1,12 +1,43 @@
-<h1>{{ question.question_text }}</h1>
+{% extends 'polls/base.html' %}
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% block content %}
+<form method="post">
+    <h2>Question</h2>
+    <p class="question">「{{ question.text }}」</p>
 
-<form action="{% url 'polls:vote' question.id %}" method="post">
-{% csrf_token %}
-{% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-{% endfor %}
-<input type="submit" value="Vote" />
+    <h2>Choices</h2>
+    {% for choice in choices %}
+        <div class="choice">
+            <span>「{{ choice.text }}」</span>
+            <span class="votes" id="votes-{{ choice.pk }}">{{ choice.votes }}</span>
+
+            {% csrf_token %}
+            <button type="button" class="btn btn-outline-primary vote" id="{{ choice.pk }}">+1</button>
+        </div>
+    {% endfor %}
 </form>
+{% endblock %}
+
+{% block extrajs %}
+<script>
+$(function(){
+    $('.vote').on('click', function(){
+        var pk = $(this).attr('id');
+        console.log(pk)
+        $.ajax({
+            url: `/vote/${pk}/`,
+            type: 'GET'
+        })
+        .done((data)=>{
+            var votesElement = `#votes-${pk}`
+            var votes = Number($(votesElement).text());
+            votes += 1;
+            $(votesElement).text(votes);
+        })
+        .fail((data)=>{
+            console.log('fail')
+        })
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Polls</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="header">
+        <h1><a href="/">Django Polls</a></h1>
+    </div>
+
+    <div class="container mt-3 questions">
+        {% csrf_token %}
+        <a class="btn btn-outline-primary" id="new" href="{% url 'polls:create' %}" data="New">New</a>
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    {% block extrajs %}{% endblock %}
+
+    <footer class="footer">
+        <p>© jumpyoshim</p>
+        <a href="https://jumpyoshim.hatenablog.com/about" target="_blank">About me</a>
+        <a href="https://github.com/jumpyoshim/django-polls" target="_blank">
+            <i class="fab fa-github github"></i>
+        </a>
+        <a href="https://twitter.com/jumpyoshim" target="_blank">
+            <i class="fab fa-twitter twitter"></i>
+        </a>
+        <a href="https://www.facebook.com/jumpei.yoshimura.1" target="_blank">
+            <i class="fab fa-facebook facebook"></i>
+        </a>
+    </footer>
+</body>
+</html>
