@@ -1,5 +1,5 @@
 # Django Polls Application
-This application extends [the Django tutorial](https://docs.djangoproject.com/ja/2.1/intro/tutorial01/).
+This application extends [the Django tutorial](https://docs.djangoproject.com/en/2.1/intro/tutorial01/).
 
 You can create, read, update and delete polls. You can also vote on polls.  
 Please try it actually:

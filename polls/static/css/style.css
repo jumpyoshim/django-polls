@@ -1,0 +1,63 @@
+h1 a {
+    color: #E06CF5;
+    font-family: 'Lobster';
+}
+
+body {
+    padding-left: 0;
+}
+
+.header {
+    background-color: #5BBEE5;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.header h1, .header h1 a, .header h1 a:visited, .header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+    text-align: center;
+}
+
+#new {
+    float: right;
+}
+
+.questions {
+    font-size: 16pt;
+}
+
+.questions a:hover {
+    color: #E2A9F3;
+}
+
+.question {
+    padding: 16px 0;
+}
+
+.choice {
+    padding: 16px 0;
+}
+
+.votes {
+    padding: 0 50px;
+}
+
+.footer {
+    background-color: #5BBEE5;
+    text-align: center;
+    font-size: 16pt;
+}
+
+.github {
+    color: #333;
+}
+
+.twitter {
+    color: #00aced;
+}
+
+.facebook {
+    color: #305097;
+}
