@@ -41,7 +41,13 @@ body {
 }
 
 .votes {
-    padding: 0 50px;
+    position: relative;
+    left: 80%;
+    float: left;
+}
+
+.vote {
+    float: right;
 }
 
 .footer {
@@ -50,8 +56,12 @@ body {
     font-size: 16pt;
 }
 
+.gitlab {
+  color: #E2432A;
+}
+
 .github {
-    color: #333;
+    color: #211F1F;
 }
 
 .twitter {
