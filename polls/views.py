@@ -13,9 +13,13 @@ from .serializers import ChoiceSerializer
 
 
 class QuestionListView(ListView):
-    model = Question
+    queryset = Question.objects.all()
     context_object_name = 'questions'
     template_name = 'polls/list.html'
+
+    def get_queryset(self):
+        queryset = self.queryset.order_by('-id')
+        return queryset
 
 
 class QuestionDetailView(DetailView):
