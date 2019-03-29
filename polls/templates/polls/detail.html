@@ -8,7 +8,7 @@
     <h2>Choices</h2>
     {% for choice in choices %}
         <div class="choice">
-            <span>「{{ choice.text }}」</span>
+            <span class="choice-text">「{{ choice.text }}」</span>
             <span class="votes" id="votes-{{ choice.pk }}">{{ choice.votes }}</span>
 
             {% csrf_token %}
