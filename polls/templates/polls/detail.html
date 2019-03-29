@@ -19,25 +19,5 @@
 {% endblock %}
 
 {% block extrajs %}
-<script>
-$(function(){
-    $('.vote').on('click', function(){
-        var pk = $(this).attr('id');
-        console.log(pk)
-        $.ajax({
-            url: `/vote/${pk}/`,
-            type: 'GET'
-        })
-        .done((data)=>{
-            var votesElement = `#votes-${pk}`
-            var votes = Number($(votesElement).text());
-            votes += 1;
-            $(votesElement).text(votes);
-        })
-        .fail((data)=>{
-            console.log('fail')
-        })
-    });
-});
-</script>
+<script src="/static/js/polls.js"></script>
 {% endblock %}
